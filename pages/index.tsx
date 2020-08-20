@@ -1,31 +1,42 @@
 import { Field, Formik } from 'formik'
+import { Input } from '../components/Input'
 
 function HomePage() {
   return (
-    <Formik initialValues={{ baseWork: 0, totalWork: 8 }} onSubmit={() => null}>
-      {({ values }) => {
-        const [hours, minutes] = calculateTotalTime(values)
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Formik
+        initialValues={{ baseWork: 0, totalWork: 8 }}
+        onSubmit={() => null}
+      >
+        {({ values }) => {
+          const [hours, minutes] = calculateTotalTime(values)
 
-        return (
-          <>
-            <label>
-              Base Work
-              <br />
-              <Field name="baseWork" type="number" />
-            </label>
-            <br />
-            <label>
-              Total Work
-              <br />
-              <Field name="totalWork" type="number" />
-            </label>
-            <p>
-              Total time: {hours} hours {minutes} minutes
-            </p>
-          </>
-        )
-      }}
-    </Formik>
+          return (
+            <div className="max-w-sm mx-auto flex flex-col justify-center mt-32">
+              <div className="mb-6">
+                <Input
+                  name="baseWork"
+                  label="Base Work"
+                  description="Straight Work (hours)"
+                  type="number"
+                />
+              </div>
+              <div className="mb-6">
+                <Input
+                  name="totalWork"
+                  label="Total Work"
+                  description="Total Work (hours)"
+                  type="number"
+                />
+              </div>
+              <p>
+                Total time: {hours} hours {minutes} minutes
+              </p>
+            </div>
+          )
+        }}
+      </Formik>
+    </div>
   )
 }
 
