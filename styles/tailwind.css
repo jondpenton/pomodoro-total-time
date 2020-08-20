@@ -7,6 +7,11 @@
 /* Stop purging. */
 
 /* Write you own custom component styles here */
+body {
+  color: theme('colors.cool-gray.300');
+  height: theme('height.screen');
+  background-color: theme('colors.cool-gray.900');
+}
 
 /* Start purging... */
 @tailwind utilities;
