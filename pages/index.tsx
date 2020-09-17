@@ -1,5 +1,6 @@
 import { Field, Formik } from 'formik'
 import { Input } from '../components/Input'
+import { calculateTotalTime } from '../lib/calculate-total-time'
 
 function HomePage() {
   return (
@@ -38,22 +39,6 @@ function HomePage() {
       </Formik>
     </div>
   )
-}
-
-function calculateTotalTime({
-  baseWork,
-  totalWork,
-}: Record<string, number>): number[] {
-  const baseWorkMinutes = baseWork * 60
-  const totalWorkMinutes = totalWork * 60
-  const pomodoroWork = totalWorkMinutes - baseWorkMinutes // 285
-  const totalPomodoroTime = Math.ceil(pomodoroWork / 25) * 30 // 360
-  const totalMinutes = totalPomodoroTime + baseWorkMinutes // 495
-  const hours = Math.floor(totalMinutes / 60)
-  const minutes = totalMinutes % 60
-  const numberOf15Minutes = Math.floor(minutes / 15)
-
-  return [hours, numberOf15Minutes * 15]
 }
 
 export default HomePage
