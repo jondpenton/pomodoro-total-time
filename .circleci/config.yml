@@ -40,10 +40,10 @@ jobs:
           command: |
             yarn build
       - save_cache:
-        key: v1-yarn-deps-{{ checksum "yarn.lock" }}
-        paths:
-          - node_modules/
-          - .next/
+          key: v1-yarn-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
+            - .next/
   test:
     docker:
       - image: circleci/node:lts
