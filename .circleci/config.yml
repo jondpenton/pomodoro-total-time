@@ -51,6 +51,10 @@ jobs:
             # Find the most recently generated cache used from any branch
             - v1-yarn-deps-
       - run:
+          name: Lint
+          command: |
+            yarn lint
+      - run:
           name: Test
           command: |
             yarn test --ci
