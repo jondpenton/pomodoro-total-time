@@ -13,7 +13,8 @@
     "start": "next start",
     "test": "jest",
     "lint": "run-p lint:*",
-    "lint:prettier": "prettier -c ."
+    "lint:prettier": "prettier -c .",
+    "lint:commitlint": "commitlint --from HEAD~1 --to HEAD --verbose"
   },
   "dependencies": {
     "@tailwindcss/ui": "^0.5.0",
@@ -25,6 +26,8 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.14",
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.46",
