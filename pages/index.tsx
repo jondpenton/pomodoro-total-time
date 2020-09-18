@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Formik
-        initialValues={{ baseWork: 0, totalWork: 8 }}
+        initialValues={{ baseWork: 0, totalWork: 8, longBreakInterval: 3 }}
         onSubmit={() => null}
       >
         {({ values }) => {
@@ -20,6 +20,7 @@ function HomePage() {
                   label="Base Work"
                   description="Straight Work (hours)"
                   type="number"
+                  min="0"
                 />
               </div>
               <div className="mb-6">
@@ -28,6 +29,15 @@ function HomePage() {
                   label="Total Work"
                   description="Total Work (hours)"
                   type="number"
+                  min="0"
+                />
+              </div>
+              <div className="mb-6">
+                <Input
+                  name="longBreakInterval"
+                  label="Long Break Interval"
+                  type="number"
+                  min="1"
                 />
               </div>
               <p>
