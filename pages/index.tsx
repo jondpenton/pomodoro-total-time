@@ -13,7 +13,7 @@ function HomePage() {
           const [hours, minutes] = calculateTotalTime(values)
 
           return (
-            <div className="max-w-sm mx-auto flex flex-col justify-center mt-32">
+            <div className="max-w-sm mx-auto flex flex-col justify-center mt-4 sm:mt-32">
               <div className="mb-6">
                 <Input
                   name="baseWork"
