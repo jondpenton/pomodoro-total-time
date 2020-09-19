@@ -1,11 +1,18 @@
-import { Field, Formik } from 'formik'
-import { Input } from '../components/Input'
+import { Formik } from 'formik'
+import { Input } from '../components/input'
+import { SyncValues } from '../components/sync-values'
 import { calculateTotalTime } from '../lib/calculate-total-time'
+
+export interface Values {
+  baseWork: number
+  totalWork: number
+  longBreakInterval: number
+}
 
 function HomePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Formik
+      <Formik<Values>
         initialValues={{ baseWork: 0, totalWork: 8, longBreakInterval: 3 }}
         onSubmit={() => null}
       >
@@ -46,6 +53,7 @@ function HomePage() {
               <p>
                 Total time: {hours} hours {minutes} minutes
               </p>
+              <SyncValues />
             </div>
           )
         }}
