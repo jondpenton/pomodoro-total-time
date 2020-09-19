@@ -1,6 +1,18 @@
-import { Field } from 'formik'
+import { Field, FieldAttributes } from 'formik'
 
-export function Input({ label, description, name, ...rest }: any) {
+export function Input({ label, description, name, type, ...rest }: any) {
+  const fieldProps: FieldAttributes<any> = {
+    className:
+      'focus:outline-none focus:border-indigo-500 focus:border-4 focus:shadow-focus appearance-none block w-full bg-cool-gray-700 border-cool-gray-500 border rounded-md px-3 py-2 text-lg leading-normal sm:text-sm sm:leading-5 text-cool-gray-300',
+    name,
+    type,
+  }
+
+  if (type === 'number') {
+    fieldProps['inputmode'] = 'decimal'
+    fieldProps.type = undefined
+  }
+
   return (
     <>
       <div className="flex justify-between">
@@ -17,11 +29,7 @@ export function Input({ label, description, name, ...rest }: any) {
         )}
       </div>
       <div className="mt-1 relative rounded-md shadow-sm">
-        <Field
-          className="focus:outline-none focus:border-indigo-500 focus:border-4 focus:shadow-focus appearance-none block w-full bg-cool-gray-700 border-cool-gray-500 border rounded-md px-3 py-2 text-lg leading-normal sm:text-sm sm:leading-5 text-cool-gray-300"
-          name={name}
-          {...rest}
-        />
+        <Field {...fieldProps} {...rest} />
       </div>
     </>
   )
