@@ -13,7 +13,12 @@ export function calculateTotalTime({
   const pomodoros = Math.ceil(pomodoroWork / 25)
   const totalPomodoroTime = pomodoros * 30
   const extraBreakMinutes = Math.floor(pomodoros / longBreakInterval) * 10
-  const totalMinutes = totalPomodoroTime + baseWorkMinutes + extraBreakMinutes
+  let totalMinutes = totalPomodoroTime + baseWorkMinutes
+
+  if (Number.isFinite(extraBreakMinutes)) {
+    totalMinutes += extraBreakMinutes
+  }
+
   const hours = Math.floor(totalMinutes / 60)
   const minutes = totalMinutes % 60
   const numberOf15Minutes = Math.floor(minutes / 15)
