@@ -21,6 +21,7 @@ function HomePage() {
                   description="Straight Work (hours)"
                   type="number"
                   min="0"
+                  step="0.25"
                 />
               </div>
               <div className="mb-6">
@@ -30,6 +31,7 @@ function HomePage() {
                   description="Total Work (hours)"
                   type="number"
                   min="0"
+                  step="0.25"
                 />
               </div>
               <div className="mb-6">
@@ -38,6 +40,7 @@ function HomePage() {
                   label="Long Break Interval"
                   type="number"
                   min="1"
+                  step="0.25"
                 />
               </div>
               <p>
