@@ -2,6 +2,7 @@ import { Formik } from 'formik'
 import React from 'react'
 import { Input } from '../components/input'
 import { SyncValues } from '../components/sync-values'
+import { TotalTime } from '../components/total-time'
 import { calculateTotalTime } from '../lib/calculate-total-time'
 
 export interface Values {
@@ -11,7 +12,7 @@ export interface Values {
 }
 
 function HomePage() {
-  const localValues = React.useMemo(() => {
+  const localValues = React.useMemo<Values | undefined>(() => {
     try {
       const entry = localStorage.getItem('values')
 
@@ -34,46 +35,38 @@ function HomePage() {
         }
         onSubmit={() => null}
       >
-        {({ values }) => {
-          const [hours, minutes] = calculateTotalTime(values)
-
-          return (
-            <div className="max-w-sm mx-auto flex flex-col justify-center mt-4 sm:mt-32">
-              <div className="mb-6">
-                <Input
-                  name="baseWork"
-                  label="Base Work"
-                  description="Straight Work (hours)"
-                  type="number"
-                  min="0"
-                  step="0.25"
-                />
-              </div>
-              <div className="mb-6">
-                <Input
-                  name="totalWork"
-                  label="Total Work"
-                  description="Total Work (hours)"
-                  type="number"
-                  min="0"
-                  step="0.5"
-                />
-              </div>
-              <div className="mb-6">
-                <Input
-                  name="longBreakInterval"
-                  label="Long Break Interval"
-                  type="number"
-                  min="1"
-                />
-              </div>
-              <p>
-                Total time: {hours} hours {minutes} minutes
-              </p>
-              <SyncValues />
-            </div>
-          )
-        }}
+        <div className="max-w-sm mx-auto flex flex-col justify-center mt-4 sm:mt-32">
+          <div className="mb-6">
+            <Input
+              name="baseWork"
+              label="Base Work"
+              description="Straight Work (hours)"
+              type="number"
+              min="0"
+              step="0.25"
+            />
+          </div>
+          <div className="mb-6">
+            <Input
+              name="totalWork"
+              label="Total Work"
+              description="Total Work (hours)"
+              type="number"
+              min="0"
+              step="0.5"
+            />
+          </div>
+          <div className="mb-6">
+            <Input
+              name="longBreakInterval"
+              label="Long Break Interval"
+              type="number"
+              min="1"
+            />
+          </div>
+          <TotalTime />
+          <SyncValues />
+        </div>
       </Formik>
     </div>
   )
