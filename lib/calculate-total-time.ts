@@ -1,6 +1,6 @@
 export function calculateTotalTime({
-  baseWork,
-  totalWork,
+  baseWork = 0,
+  totalWork = 0,
   longBreakInterval = 3,
 }: {
   baseWork: number
