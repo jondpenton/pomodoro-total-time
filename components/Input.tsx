@@ -10,7 +10,6 @@ export function Input({ label, description, name, type, ...rest }: any) {
 
   if (type === 'number') {
     fieldProps['inputMode'] = 'decimal'
-    fieldProps.type = undefined
   }
 
   return (
