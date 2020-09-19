@@ -12,6 +12,7 @@
     "export": "next export",
     "start": "next start",
     "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest",
     "lint": "run-p lint:*",
     "lint:prettier": "prettier -c .",
     "lint:commitlint": "commitlint --from HEAD~1 --to HEAD --verbose"
