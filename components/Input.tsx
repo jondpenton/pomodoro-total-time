@@ -9,7 +9,7 @@ export function Input({ label, description, name, type, ...rest }: any) {
   }
 
   if (type === 'number') {
-    fieldProps['inputmode'] = 'decimal'
+    fieldProps['inputMode'] = 'decimal'
     fieldProps.type = undefined
   }
 
